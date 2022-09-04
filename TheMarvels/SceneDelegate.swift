@@ -10,15 +10,13 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
-
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         let viewController = MarvelsListViewController()
         let rootController = UINavigationController(rootViewController: viewController)
-//        rootController.view.backgroundColor = .white
         window?.rootViewController = rootController
         window?.makeKeyAndVisible()
     }

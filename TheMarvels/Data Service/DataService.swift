@@ -8,9 +8,7 @@
 import Foundation
 
 
-class DataService {
-    
-}
+class DataService {}
 
 extension DataService: DataServiceProtocol {
     

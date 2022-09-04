@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		651F0CB66F8EA85C87553B6D /* Pods_TheMarvels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58517D9F10A421023C4C1FF0 /* Pods_TheMarvels.framework */; };
 		7A7CBC3128C36A7A006D2692 /* CharacterDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7CBC3028C36A7A006D2692 /* CharacterDetailsViewController.swift */; };
-		7A7CBC3328C3D421006D2692 /* CAGradientLayer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7CBC3228C3D421006D2692 /* CAGradientLayer+Extensions.swift */; };
 		7A7CBC3828C4870C006D2692 /* Comics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7CBC3728C4870C006D2692 /* Comics.swift */; };
 		7A7CBC3D28C48803006D2692 /* ComicCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7CBC3C28C48803006D2692 /* ComicCollectionCell.swift */; };
 		7A8E674828C0D0ED00D9B726 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8E674728C0D0ED00D9B726 /* AppDelegate.swift */; };
@@ -60,7 +59,6 @@
 		58517D9F10A421023C4C1FF0 /* Pods_TheMarvels.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheMarvels.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		63947BCB77B425AC3B201E92 /* Pods-TheMarvelsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMarvelsTests.release.xcconfig"; path = "Target Support Files/Pods-TheMarvelsTests/Pods-TheMarvelsTests.release.xcconfig"; sourceTree = "<group>"; };
 		7A7CBC3028C36A7A006D2692 /* CharacterDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsViewController.swift; sourceTree = "<group>"; };
-		7A7CBC3228C3D421006D2692 /* CAGradientLayer+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CAGradientLayer+Extensions.swift"; sourceTree = "<group>"; };
 		7A7CBC3728C4870C006D2692 /* Comics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comics.swift; sourceTree = "<group>"; };
 		7A7CBC3C28C48803006D2692 /* ComicCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicCollectionCell.swift; sourceTree = "<group>"; };
 		7A8E674428C0D0ED00D9B726 /* TheMarvels.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheMarvels.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -185,15 +183,15 @@
 		7A8E674628C0D0ED00D9B726 /* TheMarvels */ = {
 			isa = PBXGroup;
 			children = (
-				7ADC614C28C4924C0009D231 /* Models */,
+				7ADC614C28C4924C0009D231 /* Data Models */,
 				7A7CBC2F28C3697B006D2692 /* Resources */,
-				7A7CBC2E28C36967006D2692 /* Utilities */,
 				7A8E678C28C2247700D9B726 /* Network */,
 				7A8E678928C21AD500D9B726 /* App Lifecycle */,
 				7A8E678528C2181E00D9B726 /* Data Service */,
 				7A8E678428C216FB00D9B726 /* Marvel Characters */,
 				7A7CBC3628C4865A006D2692 /* Character Profile */,
 				7A8E678128C2149900D9B726 /* Extensions */,
+				7A7CBC2E28C36967006D2692 /* Utilities */,
 				7A8E679128C22E6700D9B726 /* Config.xcconfig */,
 			);
 			path = TheMarvels;
@@ -221,7 +219,6 @@
 			children = (
 				7A8E678228C214AB00D9B726 /* UIView+Extensions.swift */,
 				7A8E678A28C21CBC00D9B726 /* UserDefaults+Extensions.swift */,
-				7A7CBC3228C3D421006D2692 /* CAGradientLayer+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -273,13 +270,13 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
-		7ADC614C28C4924C0009D231 /* Models */ = {
+		7ADC614C28C4924C0009D231 /* Data Models */ = {
 			isa = PBXGroup;
 			children = (
 				7A8E677B28C0D51100D9B726 /* Marvel.swift */,
 				7A7CBC3728C4870C006D2692 /* Comics.swift */,
 			);
-			path = Models;
+			path = "Data Models";
 			sourceTree = "<group>";
 		};
 		DB87FB68FBC90E7C6A717003 /* Pods */ = {
@@ -555,7 +552,6 @@
 				7A8E674828C0D0ED00D9B726 /* AppDelegate.swift in Sources */,
 				7A8E679328C3629700D9B726 /* BaseSquareContentCard.swift in Sources */,
 				7A8E674A28C0D0ED00D9B726 /* SceneDelegate.swift in Sources */,
-				7A7CBC3328C3D421006D2692 /* CAGradientLayer+Extensions.swift in Sources */,
 				7A8E678B28C21CBC00D9B726 /* UserDefaults+Extensions.swift in Sources */,
 				7ADC614B28C489990009D231 /* CharacterDetailsViewModel.swift in Sources */,
 				7A8E677828C0D15300D9B726 /* MarvelTableCell.swift in Sources */,
