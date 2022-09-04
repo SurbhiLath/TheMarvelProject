@@ -1,0 +1,10 @@
+//
+//  Config.xcconfig
+//  TheMarvels
+//
+//  Created by Surbhi Bagadia on 02/09/22.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+PRIVATE_KEY = 571f7e248c2acc8b5f0e6b0d011d87d25955d986
