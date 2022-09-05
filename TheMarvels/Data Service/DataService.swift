@@ -16,8 +16,8 @@ extension DataService: DataServiceProtocol {
     ///
     /// - Parameters:
     ///     - completion: Closure for completion notification
-    func fetchMarvels(completion: @escaping MarvelFetchCompletion) {
-        APIManager.shared.load(for: .characters, type: [Marvel].self) { result in
+    func fetchMarvels(offset: Int, completion: @escaping MarvelFetchCompletion) {
+        APIManager.shared.load(for: .characters(offset: "\(offset)"), with: [:], type: [Marvel].self) { result in
             switch result {
             case .success(let response):
                 completion(response.data.results, nil)

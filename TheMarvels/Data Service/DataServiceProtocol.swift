@@ -15,5 +15,5 @@ protocol DataServiceProtocol {
     ///
     /// - Parameters:
     ///     - completion: Closure for completion notification
-    func fetchMarvels(completion: @escaping MarvelFetchCompletion)
+    func fetchMarvels(offset: Int, completion: @escaping MarvelFetchCompletion)
 }

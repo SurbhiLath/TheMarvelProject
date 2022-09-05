@@ -21,6 +21,9 @@ class MarvelsViewModel: NSObject {
     private static let marvelsCacheKey = "veletio.TheMarvels.marvelsCacheKey"
     var isSearching: Bool = false
     var filteredMarvels = [Marvel]()
+    var offset = 0
+    var isLoadingList : Bool = false
+    
     init(dataService: DataServiceProtocol = DataService(), delegate: MarvelsViewModelProtocol) {
         self.dataService = dataService
         self.delegate = delegate
@@ -59,18 +62,26 @@ class MarvelsViewModel: NSObject {
             self.filteredMarvels = marvels
             self.delegate?.updateMarvels()
         } else {
-            fetchFromServer()
+            fetchFromServer(isNextPageRquest: false)
         }
     }
     
     // Fetches the available marvels from server on pull refresh
     func reloadMarvels() {
-        fetchFromServer()
+        fetchFromServer(isNextPageRquest: false)
     }
     
-    func fetchFromServer() {
-        delegate?.loadingData()
-        dataService.fetchMarvels { marvels, error in
+    func fetchFromServer(isNextPageRquest: Bool) {
+        isLoadingList = true
+        
+        if isNextPageRquest {
+            offset += 20
+        } else {
+            delegate?.loadingData()
+        }
+        
+        dataService.fetchMarvels(offset: offset) { marvels, error in
+            self.isLoadingList = false
             if let error = error {
                 self.delegate?.failedToFetchMarvels()
                 print("Failed to fetch marvels with error. Error \(error.localizedDescription)")
@@ -78,15 +89,23 @@ class MarvelsViewModel: NSObject {
             }
             
             if let marvels = marvels {
-                self.marvelCharacters = marvels
-                self.filteredMarvels = marvels
+                if isNextPageRquest {
+                    self.marvelCharacters.append(contentsOf: marvels)
+                } else {
+                    self.marvelCharacters = marvels
+                }
+                self.filteredMarvels = self.marvelCharacters
                 self.delegate?.updateMarvels()
                 do {
-                    try self.userDefaults.setObject(marvels, forKey: Self.marvelsCacheKey)
+                    try self.userDefaults.setObject(self.marvelCharacters, forKey: Self.marvelsCacheKey)
                 } catch {
                     print(error.localizedDescription)
                 }
             }
         }
+    }
+    
+    func loadMore() {
+        fetchFromServer(isNextPageRquest: true)
     }
 }

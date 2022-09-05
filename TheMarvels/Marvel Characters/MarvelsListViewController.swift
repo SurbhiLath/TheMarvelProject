@@ -170,8 +170,14 @@ extension MarvelsListViewController: UITableViewDelegate, UITableViewDataSource 
         }
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        self.view.endEditing(true)
+     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if marvelTableView.isDragging {
+            self.view.endEditing(true)
+        }
+        
+         if (scrollView.contentOffset.y + scrollView.frame.size.height) > scrollView.contentSize.height && viewModel?.isLoadingList == false {
+             self.viewModel?.loadMore()
+         }
     }
 }
 
@@ -205,17 +211,7 @@ extension MarvelsListViewController: UISearchBarDelegate {
         viewModel?.isSearching = true
     }
     
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        searchBar.resignFirstResponder()
-        viewModel?.isSearching = false
-    }
-    
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.resignFirstResponder()
-        viewModel?.isSearching = false
-    }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         viewModel?.isSearching = false
     }

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		651F0CB66F8EA85C87553B6D /* Pods_TheMarvels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58517D9F10A421023C4C1FF0 /* Pods_TheMarvels.framework */; };
+		7A20AAE428C5D2A600F8D1E2 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A20AAE328C5D2A600F8D1E2 /* APIRequest.swift */; };
+		7A20AAE628C5D37000F8D1E2 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A20AAE528C5D37000F8D1E2 /* APIResponse.swift */; };
 		7A7CBC3128C36A7A006D2692 /* CharacterDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7CBC3028C36A7A006D2692 /* CharacterDetailsViewController.swift */; };
 		7A7CBC3828C4870C006D2692 /* Comics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7CBC3728C4870C006D2692 /* Comics.swift */; };
 		7A7CBC3D28C48803006D2692 /* ComicCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7CBC3C28C48803006D2692 /* ComicCollectionCell.swift */; };
@@ -58,6 +60,8 @@
 		3FD83EAED4961C70FAE1D986 /* Pods-TheMarvels-TheMarvelsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMarvels-TheMarvelsUITests.debug.xcconfig"; path = "Target Support Files/Pods-TheMarvels-TheMarvelsUITests/Pods-TheMarvels-TheMarvelsUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		58517D9F10A421023C4C1FF0 /* Pods_TheMarvels.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheMarvels.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		63947BCB77B425AC3B201E92 /* Pods-TheMarvelsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMarvelsTests.release.xcconfig"; path = "Target Support Files/Pods-TheMarvelsTests/Pods-TheMarvelsTests.release.xcconfig"; sourceTree = "<group>"; };
+		7A20AAE328C5D2A600F8D1E2 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
+		7A20AAE528C5D37000F8D1E2 /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
 		7A7CBC3028C36A7A006D2692 /* CharacterDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsViewController.swift; sourceTree = "<group>"; };
 		7A7CBC3728C4870C006D2692 /* Comics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comics.swift; sourceTree = "<group>"; };
 		7A7CBC3C28C48803006D2692 /* ComicCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicCollectionCell.swift; sourceTree = "<group>"; };
@@ -266,6 +270,8 @@
 			children = (
 				7A8E678D28C2249D00D9B726 /* Endpoints.swift */,
 				7A8E678F28C2258000D9B726 /* APIManager.swift */,
+				7A20AAE328C5D2A600F8D1E2 /* APIRequest.swift */,
+				7A20AAE528C5D37000F8D1E2 /* APIResponse.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -547,12 +553,14 @@
 				7A7CBC3128C36A7A006D2692 /* CharacterDetailsViewController.swift in Sources */,
 				7A8E678028C0D7BE00D9B726 /* DataServiceProtocol.swift in Sources */,
 				7A8E677E28C0D7A300D9B726 /* DataService.swift in Sources */,
+				7A20AAE428C5D2A600F8D1E2 /* APIRequest.swift in Sources */,
 				7A8E678328C214AB00D9B726 /* UIView+Extensions.swift in Sources */,
 				7A8E674C28C0D0ED00D9B726 /* MarvelsListViewController.swift in Sources */,
 				7A8E674828C0D0ED00D9B726 /* AppDelegate.swift in Sources */,
 				7A8E679328C3629700D9B726 /* BaseSquareContentCard.swift in Sources */,
 				7A8E674A28C0D0ED00D9B726 /* SceneDelegate.swift in Sources */,
 				7A8E678B28C21CBC00D9B726 /* UserDefaults+Extensions.swift in Sources */,
+				7A20AAE628C5D37000F8D1E2 /* APIResponse.swift in Sources */,
 				7ADC614B28C489990009D231 /* CharacterDetailsViewModel.swift in Sources */,
 				7A8E677828C0D15300D9B726 /* MarvelTableCell.swift in Sources */,
 				7A8E679028C2258000D9B726 /* APIManager.swift in Sources */,
