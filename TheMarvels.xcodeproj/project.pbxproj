@@ -183,11 +183,11 @@
 		7A8E674628C0D0ED00D9B726 /* TheMarvels */ = {
 			isa = PBXGroup;
 			children = (
-				7ADC614C28C4924C0009D231 /* Data Models */,
-				7A7CBC2F28C3697B006D2692 /* Resources */,
 				7A8E678C28C2247700D9B726 /* Network */,
-				7A8E678928C21AD500D9B726 /* App Lifecycle */,
+				7ADC614C28C4924C0009D231 /* Data Models */,
 				7A8E678528C2181E00D9B726 /* Data Service */,
+				7A7CBC2F28C3697B006D2692 /* Resources */,
+				7A8E678928C21AD500D9B726 /* App Lifecycle */,
 				7A8E678428C216FB00D9B726 /* Marvel Characters */,
 				7A7CBC3628C4865A006D2692 /* Character Profile */,
 				7A8E678128C2149900D9B726 /* Extensions */,

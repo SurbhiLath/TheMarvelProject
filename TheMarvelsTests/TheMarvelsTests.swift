@@ -26,13 +26,10 @@ class TheMarvelsTests: XCTestCase {
     }
     
     func test_fetch_marvels() {
-
-        // Given A apiservice
         let sut = self.sut!
 
         // When fetch marvels
         let expect = XCTestExpectation(description: "callback")
-
         sut.fetchMarvels(completion: { marvels, error in
             expect.fulfill()
             XCTAssertEqual( marvels?.count, 20)

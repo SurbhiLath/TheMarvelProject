@@ -24,7 +24,6 @@ class APIManager {
         urlRequest.httpMethod = "GET"
         let task = URLSession.shared.dataTask(with: urlRequest) { data, _, error in
             if let error = error { completion(.failure(error)); return }
-            
             do {
                 let response = try JSONDecoder().decode(APIResponse<T>.self, from: data!)
                 DispatchQueue.main.async { completion(.success(response)) }
@@ -36,6 +35,7 @@ class APIManager {
     }
 }
 
+// Creates and encrpts parameters for an API request
 struct APIRequest: Encodable {
     let ts: String = "\(Date().timeIntervalSince1970)".components(separatedBy: ".")[0]
     let apikey: String = "8aea06385d17ce44ee52d3ebcd124a69"
@@ -64,6 +64,7 @@ struct APIRequest: Encodable {
     }
 }
 
+// Response struct for api response
 struct APIResponse<D : Decodable>: Decodable {
     let responseCode: Int
     let status: String
