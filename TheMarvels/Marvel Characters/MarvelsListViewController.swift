@@ -58,7 +58,6 @@ class MarvelsListViewController: UIViewController {
         gradient.colors = [
             UIColor.red.cgColor,
             UIColor.purple.cgColor,
-//            UIColor.cyan.cgColor
         ]
 //        [UIColor(hexCode: 0xBC2E23), UIColor(hexCode: 0x376593)],
         gradient.locations = [0, 1]
@@ -165,6 +164,7 @@ extension MarvelsListViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let viewModel = viewModel {
             let details = CharacterDetailsViewController()
+            details.delegate = self
             details.configureLayout(with: viewModel.character(for: indexPath))
             self.navigationController?.pushViewController(details, animated: true)
         }
@@ -222,6 +222,12 @@ extension MarvelsListViewController: UISearchBarDelegate {
         } else {
             viewModel?.search(for: searchText)
         }
+        self.marvelTableView.reloadData()
+    }
+}
+
+extension MarvelsListViewController: CharacterChanges {
+    func characterAltered() {
         self.marvelTableView.reloadData()
     }
 }

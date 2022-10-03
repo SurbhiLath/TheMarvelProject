@@ -37,3 +37,4 @@ struct Thumbnail: Codable {
         case fileExtension = "extension", path
     }
 }
+

@@ -7,15 +7,21 @@
 
 import UIKit
 
+protocol CharacterChanges: NSObject {
+    func characterAltered()
+}
+
 class CharacterDetailsViewController: UIViewController {
+    weak var delegate: CharacterChanges?
+    
     var viewModel: CharacterDetailsViewModel? {
         didSet {
             updateData()
         }
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -62,6 +68,15 @@ class CharacterDetailsViewController: UIViewController {
         return label
     }()
     
+    private lazy var bookmarkButton: UIButton = {
+        let button = UIButton()
+        let bookmarkImage = "Icon bookmark-1"
+        button.setImage(UIImage(named: bookmarkImage), for: .normal)
+        button.addTarget(self, action: #selector(bookmark), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
     private lazy var comicCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: 267, height: 252)
@@ -81,7 +96,15 @@ class CharacterDetailsViewController: UIViewController {
     
     
     func configureLayout(with characterDetails: Marvel) {
-        view.addSubviews([backgroundImage, descriptionLabel, titleLabel, comicCollectionView, comicsLabel])
+        view.addSubviews([
+            backgroundImage,
+            descriptionLabel,
+            titleLabel,
+            comicCollectionView,
+            comicsLabel,
+            bookmarkButton
+        ])
+        
         NSLayoutConstraint.activate([
             backgroundImage.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             backgroundImage.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
@@ -103,7 +126,12 @@ class CharacterDetailsViewController: UIViewController {
             comicCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             comicCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             comicCollectionView.topAnchor.constraint(equalTo: comicsLabel.bottomAnchor, constant: 10),
-            comicCollectionView.heightAnchor.constraint(equalToConstant: 120)
+            comicCollectionView.heightAnchor.constraint(equalToConstant: 120),
+            
+            bookmarkButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20),
+            bookmarkButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 70),
+            bookmarkButton.heightAnchor.constraint(equalToConstant: 40),
+            bookmarkButton.widthAnchor.constraint(equalToConstant: 40)
         ])
         view.backgroundColor = .white
         initaliseCollectionView()
@@ -124,6 +152,20 @@ class CharacterDetailsViewController: UIViewController {
             descriptionLabel.text = viewModel.characterDescription
             titleLabel.text = viewModel.name
             comicCollectionView.reloadData()
+            let bookmarkImage = viewModel.character.isBookmarked ? "Icon bookmark" : "Icon bookmark-1"
+            bookmarkButton.setImage(UIImage(named: bookmarkImage), for: .normal)
+        }
+    }
+    
+    @objc func bookmark() {
+        if let viewModel = viewModel {
+            if viewModel.character.isBookmarked {
+                bookmarkButton.setImage(UIImage(named: "Icon bookmark-1"), for: .normal)
+            } else {
+                bookmarkButton.setImage(UIImage(named: "Icon bookmark"), for: .normal)
+            }
+            viewModel.character.bookmark()
+            delegate?.characterAltered()
         }
     }
 }
